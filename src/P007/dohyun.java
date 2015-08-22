@@ -1,5 +1,9 @@
 package P007;
-
+/**
+ * 7번 문제 풀었음.
+ * @author anto5710
+ *
+ */
 public class dohyun {
 	public static void main(String[] args) {
 		dohyun dh = new dohyun();
@@ -20,7 +24,6 @@ public class dohyun {
 	}
 
 	public boolean returnPrime(final int number) {
-		// boolean isPrime = false;
 		if (number == 2) {
 			return true;
 		}
