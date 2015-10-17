@@ -114,55 +114,32 @@ public static String add(String na, String nb  ) {
 		int carry = 0;
 		sa = reverse (sa);
 		sb = reverse(sb);
-		/*
-		 * 1  - 1234000
-		 * 2  -  123400
-		 * 3  -   12340
-		 * 4  -    1234
-		 */
-		/*
-		 * 123 x 89
-		 * 
-		 * na :  3   2   1
-		 *  
-		 * nb :  9   8 
-		 *      [0] [1] [2] [3]
-		 */
+		
 		int naSize = sa.length();
 		int nbSize = sb.length();
 		for(int indexSb = 0; indexSb <nbSize ; indexSb++){
-			CurrentResult = "";
-			for(int c= 0 ; c< indexSb; c++){
-				CurrentResult=CurrentResult+"0";
-			}
+			CurrentResult = fill( "0", indexSb); //"";
+			int nb = intAt ( sb, indexSb); //toInteger(Currentnb);
+			
 			for(int indexSa = 0; indexSa < naSize ; indexSa++){
-				String Currentna = sa.charAt(indexSa)+"";
-				String Currentnb = sb.charAt(indexSb)+"";
 				
-				int na = toInteger(Currentna);
-				int nb = toInteger(Currentnb);
+				int na = intAt ( sa, indexSa); // toInteger(Currentna);
 				
 				int naXnb = na*nb;
 				naXnb +=carry;
 				
-//				if(naXnb>=10){
-					carry = naXnb/10;
-					naXnb = naXnb%10;
-//				}
+				carry = naXnb/10;
+				naXnb = naXnb%10;
 				
-				CurrentResult+=naXnb+"";
+				CurrentResult+=naXnb ;
 			}
-			// 7011, 0489
 			if(carry>0){
 				CurrentResult+=carry;
 				carry = 0;
 			}
-//			System.out.println(CurrentResult);
 			
 			result = add(reverse(result), reverse(CurrentResult));
-			
 			result = reverse(result);
-			
 		}
 		
 		
@@ -171,6 +148,25 @@ public static String add(String na, String nb  ) {
 		
 		return result = reverse(result);
 		
+	}
+
+	/**
+	 * 주어진 문자열을 n개 결합한 새로운 문자열로 만들어서 반환합니다.
+	 * @param string
+	 * @param n
+	 * @return
+	 */
+	private static String fill(String s, int n) {
+		StringBuilder sb = new StringBuilder();
+		for ( int i = 0 ; i < n ; i++) {
+			sb.append(s);
+		}
+		return sb.toString();
+	}
+
+	private static int intAt(String s, int idx) {
+		char ch = s.charAt(idx);
+		return ch - '0';
 	}
 
 	/**
