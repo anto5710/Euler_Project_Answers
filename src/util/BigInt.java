@@ -17,7 +17,6 @@ public class BigInt {
 	 * @return
 	 */
 	public String add(String na, String nb  ) {
-	BigInteger d = BigInteger.TEN;
 		String result = "";
 		int carry = 0;
 		na = reverse (na);
