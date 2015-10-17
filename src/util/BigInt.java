@@ -1,68 +1,22 @@
-package P0013;
+package util;
 
-import java.io.InputStream;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
-
-import org.omg.PortableInterceptor.INACTIVE;
 
 /**
+ * 아주 큰 수를 더하거나 곱하는데 사용하려고 만들었습니다.
  * 
- *  carry: 1 // 자리올림
- *   "927"
- * +  "86"
- *  ------
- *   1013
- *   
- *    carry: 0
- *          "1"
- *    "9999999"
- *   -----------
- *             
- *   
- *  
  * @author anto5710
  *
  */
-public class P0013Main {
+public class BigInt {
 
-	public static void main(String[]args){
-		InputStream in = loadInput();
-		Scanner sc = new Scanner(in);
-		List<String> numbers = new ArrayList<String>();
-		while( sc.hasNextLine()) {
-			String line = sc.nextLine();
-			numbers.add(line);
-		}
-		sc.close();
-		
-		solve ( numbers);
-	}
-
-	/**
-	 * 여기서 풀면 됩니다.
-	 * @param numbers - 100개의 숫자가 담긴 리스트
-	 */
-	public static void solve(List<String> numbers) {
-		Iterator<String>itretor  = numbers.iterator();
-		String total = "0";
-		while(itretor.hasNext()){
-			total = add (total, itretor.next());
-			System.out.println(":> " + total);
-		}
-		System.out.println(total);
-	}
-	
 	/**
 	 * 
 	 * @param na
 	 * @param nb
 	 * @return
 	 */
-	public static String add(String na, String nb  ) {
+	public String add(String na, String nb  ) {
 	BigInteger d = BigInteger.TEN;
 		String result = "";
 		int carry = 0;
@@ -108,7 +62,7 @@ public class P0013Main {
 		
 	}
 
-	public static String multipy(String sa, String sb  ) {
+	public String multipy(String sa, String sb  ) {
 		String result = "0";
 		String CurrentResult = "";
 		int carry = 0;
@@ -156,7 +110,7 @@ public class P0013Main {
 	 * @param n
 	 * @return
 	 */
-	private static String fill(String s, int n) {
+	private String fill(String s, int n) {
 		StringBuilder sb = new StringBuilder();
 		for ( int i = 0 ; i < n ; i++) {
 			sb.append(s);
@@ -164,7 +118,7 @@ public class P0013Main {
 		return sb.toString();
 	}
 
-	private static int intAt(String s, int idx) {
+	private int intAt(String s, int idx) {
 		char ch = s.charAt(idx);
 		return ch - '0';
 	}
@@ -174,7 +128,7 @@ public class P0013Main {
 	 * @param string
 	 * @return
 	 */
-	public static int toInteger(String string) {
+	public int toInteger(String string) {
 		int num = 0;
 		try {
 			num = Integer.parseInt(string);
@@ -191,15 +145,11 @@ public class P0013Main {
 	 * @param string
 	 * @return
 	 */
-	public static String reverse(String string) {
+	public String reverse(String string) {
 		String result = "";
 		for(int index  = string.length()-1 ; index >=0 ; index-- ){
 			result = result + string.charAt(index);
 		}
 		return result;
-	}
-
-	private static InputStream loadInput() {
-		return P0013Main.class.getResourceAsStream("input.txt");
 	}
 }

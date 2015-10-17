@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import util.BigInt;
 import P0013.P0013Main;
 /**
  * 렉이 걸리는 이유 - 반복문은 죄가 없음.
@@ -29,17 +30,18 @@ public class TestP0016 {
 
 	@Test
 	public void test() {
-		String result = P0013Main.multipy("123", "89");
+		BigInt bint = new BigInt();
+		String result = bint.multipy("123", "89");
 		assertEquals ( "10947", result);
 		
-		result = P0013Main.multipy("10000", "11");
+		result = bint.multipy("10000", "11");
 		assertEquals ( "110000", result);
 		
 		// 2^10
 		int a = 10;
 		result = "1";
 		for(int c = 0 ; c<a ; c++){
-			result = P0013Main.multipy(result, "2");
+			result = bint.multipy(result, "2");
 		}
 		assertEquals ( "1024", result);
 		

@@ -1,9 +1,10 @@
 package P00016;
 
-import P0013.P0013Main;
+import util.BigInt;
 
 public class Sum_Of_digits {
 	static int roof = 1000;
+	static BigInt bigInt = new BigInt();
 	public static void main(String[]args){
 		String Num = getNum(roof);
 		System.out.println(Num);
@@ -12,7 +13,7 @@ public class Sum_Of_digits {
 	private static void getSumOfDigits(String Num) {
 		long result = 0;
 			for(int index = 0;index<Num.length() ; index++){
-				result+=P0013Main.toInteger(Num.charAt(index)+"");
+				result+=bigInt.toInteger(Num.charAt(index)+"");
 			}
 			System.out.println(result);
 	}
@@ -20,7 +21,7 @@ public class Sum_Of_digits {
 //		
 		String num ="1";
 		for(int c = 0 ; c<roof ; c++){
-			num=P0013Main.multipy(num, "2");
+			num=bigInt.multipy(num, "2");
 		}
 		return num;
 	}
