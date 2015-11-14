@@ -9,14 +9,16 @@ import java.math.BigInteger;
  *
  */
 public class BigInt {
-
+	public BigInt(){
+		
+	}
 	/**
 	 * 
 	 * @param na
 	 * @param nb
 	 * @return
 	 */
-	public String add(String na, String nb  ) {
+	public static String add(String na, String nb  ) {
 		String result = "";
 		int carry = 0;
 		na = reverse (na);
@@ -61,7 +63,7 @@ public class BigInt {
 		
 	}
 
-	public String multipy(String sa, String sb  ) {
+	public static String multipy(String sa, String sb  ) {
 		String result = "0";
 		String CurrentResult = "";
 		int carry = 0;
@@ -109,7 +111,7 @@ public class BigInt {
 	 * @param n
 	 * @return
 	 */
-	private String fill(String s, int n) {
+	private static String fill(String s, int n) {
 		StringBuilder sb = new StringBuilder();
 		for ( int i = 0 ; i < n ; i++) {
 			sb.append(s);
@@ -117,7 +119,7 @@ public class BigInt {
 		return sb.toString();
 	}
 
-	private int intAt(String s, int idx) {
+	private static int intAt(String s, int idx) {
 		char ch = s.charAt(idx);
 		return ch - '0';
 	}
@@ -144,7 +146,7 @@ public class BigInt {
 	 * @param string
 	 * @return
 	 */
-	public String reverse(String string) {
+	public static String reverse(String string) {
 		String result = "";
 		for(int index  = string.length()-1 ; index >=0 ; index-- ){
 			result = result + string.charAt(index);
