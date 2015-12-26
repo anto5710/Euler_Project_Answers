@@ -153,4 +153,17 @@ public class BigInt {
 		}
 		return result;
 	}
+	/**
+	 * a를 b번 곱한 값(a^b)
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	public static String pow(int a, int b) {
+		String result = a+"";
+		for(int d =1 ; d < b ; d++){
+			result =multipy(result, ""+a);
+		}
+		return result;
+	}
 }

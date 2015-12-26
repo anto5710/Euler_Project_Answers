@@ -1,5 +1,6 @@
 package util;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -15,12 +16,29 @@ public class Uitl {
 	}
 	
 	/**
-	 * 주어진 수가 솟수(prime number)인지 판별합니다.
+	 *  src문자열에서 dest의 문자들을 모두 제거한 새로운 문자열을 반환합니다.
+	 *  
+	 *  String s = Util.strip("abcdef", "aef") ;
+	 *  s.equals ( "bcd");
+	 * @param src
+	 * @param dest
+	 * @return
+	 */
+	public static String strip( String src, String other) {
+		for(int i = 0; i<other.length() ; i++){
+			src = src.replace(other.charAt(i)+"", "");
+		}
+		return src;
+	}
+	
+	/**
+	 * 주어진 수가 소수(prime number)인지 판별합니다.
 	 * @param num
-	 * @return 솟수이면 true반환합니다.
+	 * @return 소수이면 true반환합니다.
 	 */
 	public static boolean isPrime(long num){
-		if (num == 1) {
+		
+		if (num <= 1) {
 			return false;
 		}
 		else if(num==2){
@@ -34,4 +52,44 @@ public class Uitl {
 		}
 		return true;
 	}
+
+	public static long getFactorial(int last_n) {
+		long result = 1;
+		for(int n = 2 ; n<=last_n ; n++){
+			result*=n;
+		}
+		return result;
+	}
+
+	public static boolean areAllSame(Collection<?> values) {
+		Object object = values.toArray()[0];
+		for(Object obj : values){
+			if(object != obj){
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static long MultiplyLong(Collection<Long>nums) {
+		long result =1;
+		for(long integer : nums){
+			result*=integer;
+			
+		}
+		return result;
+	}
+	
+	public static int MultiplyInteger(Collection<Integer>nums) {
+		int result =1;
+		for(Integer integer : nums){
+			result*=integer;
+			
+		}
+		return result;
+	}
+	public static int toInteger(String num){
+		return Integer.parseInt(num);
+	}
+	
 }
