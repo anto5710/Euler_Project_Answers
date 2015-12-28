@@ -3,6 +3,7 @@ package util;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 public class Uitl {
 	public static long getSumOfNumbers(Collection<Integer>list ){
@@ -90,6 +91,16 @@ public class Uitl {
 	}
 	public static int toInteger(String num){
 		return Integer.parseInt(num);
+	}
+
+	public static Long getSumOfNumbers(List<Long> list) {
+		long total = 0;
+		Iterator<Long>iterator = list.iterator();
+		while(iterator.hasNext()){
+			Long l = iterator.next();
+			total+=l;
+		}
+		return total;
 	}
 	
 }

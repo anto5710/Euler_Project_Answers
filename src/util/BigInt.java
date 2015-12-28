@@ -166,4 +166,11 @@ public class BigInt {
 		}
 		return result;
 	}
+	public static String getFactorial(int n) {
+		String result = n+"";
+		for(int d = n ; d > 0 ; d--){
+			result =multipy(result, ""+d);
+		}
+		return result;
+	}
 }
